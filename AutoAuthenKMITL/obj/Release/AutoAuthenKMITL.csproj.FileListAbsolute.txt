@@ -1,0 +1,13 @@
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\bin\Release\AutoAuthenKMITL.exe.config
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\bin\Release\AutoAuthenKMITL.exe
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\bin\Release\AutoAuthenKMITL.pdb
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\bin\Release\Newtonsoft.Json.dll
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\bin\Release\Newtonsoft.Json.xml
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.Main.resources
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.Properties.Resources.resources
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.UserPanel.resources
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.csproj.GenerateResource.cache
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.csproj.CoreCompileInputs.cache
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.csproj.CopyComplete
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.exe
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.pdb
