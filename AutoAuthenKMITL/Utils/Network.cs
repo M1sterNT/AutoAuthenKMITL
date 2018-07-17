@@ -10,7 +10,7 @@ namespace AutoAuthenKMITL.Utils
 {
     class Network
     {
-        private bool checkShouldLoginStatus()
+        public static bool checkShouldLoginStatus()
         {
             if (!checkForInternetConnectionGoogle() && checkForInternetConnectionKMITL())
             {
@@ -21,7 +21,7 @@ namespace AutoAuthenKMITL.Utils
                 return false;
             }
         }
-        private bool checkForInternetConnectionKMITL()
+        private static bool checkForInternetConnectionKMITL()
         {
             try
             {
@@ -36,7 +36,7 @@ namespace AutoAuthenKMITL.Utils
                 return false;
             }
         }
-        private bool checkForInternetConnectionGoogle()
+        private static bool checkForInternetConnectionGoogle()
         {
             try
             {

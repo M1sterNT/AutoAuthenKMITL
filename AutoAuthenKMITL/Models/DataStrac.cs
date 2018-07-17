@@ -14,5 +14,7 @@ namespace AutoAuthenKMITL
         public static string ip;
         public static string webHeatbeatPeriod;
         public static string token;
+        public static string username;
+        public static string password;
     }
 }

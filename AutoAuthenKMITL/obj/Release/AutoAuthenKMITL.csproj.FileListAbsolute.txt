@@ -11,3 +11,4 @@ c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoA
 c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.csproj.CopyComplete
 c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.exe
 c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.pdb
+c:\users\misternt\source\repos\AutoAuthenKMITL\AutoAuthenKMITL\obj\Release\AutoAuthenKMITL.csprojResolveAssemblyReference.cache

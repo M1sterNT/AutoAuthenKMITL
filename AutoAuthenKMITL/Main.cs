@@ -20,13 +20,16 @@ namespace AutoAuthenKMITL
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            //  cradit.Text = checkShouldLoginStatus().ToString();
-      
+
             if (Properties.Settings.Default.Remember) {
                 username.Text = Properties.Settings.Default.UserName;
                 password.Text = Properties.Settings.Default.PassWord;
                 Remember.Checked = Properties.Settings.Default.Remember;
             }
+        }
+        private void preLogin() {
+            username.Enabled = false;
+            password.Enabled = false;
         }
         private void Login_Click(object sender, EventArgs e)
         {
@@ -40,19 +43,21 @@ namespace AutoAuthenKMITL
             }
             else
             {
-                new UserControl().Show();
-                //Hide();
+               DataStrac.username = username.Text;
+               DataStrac.password = password.Text;
+               new Panel().Show();
+               Hide();
             }
         }
         private bool getRemember()
         {
             return Properties.Settings.Default.Remember;
         }
-        private string getUserName()
+        public string getUserName()
         {
             return Properties.Settings.Default.UserName;
         }
-        private string getPassWord()
+        public string getPassWord()
         {
             return Properties.Settings.Default.PassWord;
         }
@@ -66,6 +71,22 @@ namespace AutoAuthenKMITL
         {
             Application.Exit();
         }
-      
+
+        private void notifyIcon1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            Show();
+            this.WindowState = FormWindowState.Normal;
+            notifyIcon1.Visible = false;
+        }
+
+        private void Main_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                notifyIcon1.Visible = true;
+                notifyIcon1.ShowBalloonTip(1);
+            }
+        }
     }
 }
