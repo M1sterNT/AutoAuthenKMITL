@@ -39,7 +39,7 @@ namespace AutoAuthenKMITL
             }
             if (!UserController.sendLogin(username.Text, password.Text))
             {
-                MessageBox.Show("UserName , Password Wrong");
+                MessageBox.Show("UserName , Password Wrong!");
             }
             else
             {
