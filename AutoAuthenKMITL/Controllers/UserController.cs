@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
@@ -11,7 +11,7 @@ namespace AutoAuthenKMITL.Controller
 {
     class UserController
     {
-        private static string baseURL = "https://mylogin.kmitl.ac.th:8445/PortalServer";
+        private static string baseURL = "https://connect.kmitl.ac.th:8445/PortalServer";
 
         public static bool sendLogin(string username,string password)
         {
@@ -26,19 +26,23 @@ namespace AutoAuthenKMITL.Controller
                 data["browserFlag"] = "en";
                 data["ClientIp"] = "";
                 wb.Headers["User-Agent"] = "CSAG_AUTOTHEN_KMITL";
-
+                ServicePointManager.ServerCertificateValidationCallback += (send, certificate, chain, sslPolicyErrors) => { return true; };
                 byte[] byteArray = wb.UploadValues(baseURL+"/Webauth/webAuthAction!login.action", "POST", data);
                 wb.Encoding = UTF8Encoding.UTF8;
 
                 dynamic dataOject = JsonConvert.DeserializeObject(Encoding.ASCII.GetString(byteArray));
-                bool canVisitorApplication = dataOject.data.canVisitorApplication;
-                if (canVisitorApplication)
+                Console.WriteLine(dataOject);
+                bool success = dataOject.success;
+                if (success)
                 {
                     DataStrac.account = dataOject.data.account;
                     DataStrac.failCount = dataOject.data.failCount;
                     DataStrac.ip = dataOject.data.ip;
                     DataStrac.sessionId = dataOject.data.sessionId;
                     DataStrac.webHeatbeatPeriod = dataOject.data.webHeatbeatPeriod;
+                    DataStrac.webPortalOvertimePeriod = dataOject.data.webPortalOvertimePeriod;
+                    DataStrac.loginDate = dataOject.data.loginDate;
+
                     DataStrac.token = dataOject.token;
                     return true;
                 }
@@ -51,7 +55,26 @@ namespace AutoAuthenKMITL.Controller
             }
         }
         public static bool sendHart() {
-            return true;
+            bool result;
+            try
+            {
+                using (WebClient webClient = new WebClient())
+                {
+                    NameValueCollection nameValueCollection = new NameValueCollection();
+                    nameValueCollection["userName"] = DataStrac.username;
+                    webClient.Headers["User-Agent"] = "CSAG_AUTOTHEN_KMITL";
+                    webClient.Headers["X-XSRF-TOKEN"] = DataStrac.token;
+                    ServicePointManager.ServerCertificateValidationCallback += (send, certificate, chain, sslPolicyErrors) => { return true; };
+                    webClient.UploadValues(UserController.baseURL + "/Webauth/webAuthAction!hearbeat.action", "POST", nameValueCollection);
+                    webClient.Encoding = Encoding.UTF8;
+                    result = true;
+                }
+            }
+            catch
+            {
+                result = false;
+            }
+            return result;
         }
         public static bool sendLogout()
         {
